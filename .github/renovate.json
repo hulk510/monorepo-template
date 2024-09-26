@@ -12,8 +12,6 @@
     ":semanticCommits",
     "npm:unpublishSafe",
     "schedule:daily",
-    ":prConcurrentLimit10",
-    ":prHourlyLimit4",
     "customManagers:biomeVersions"
   ],
   "automergeStrategy": "squash",
