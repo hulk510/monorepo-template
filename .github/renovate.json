@@ -10,7 +10,7 @@
     ":maintainLockFilesWeekly",
     ":rebaseStalePrs",
     ":semanticCommits",
-    "npm:unpublishSafe",
+    "security:minimumReleaseAgeNpm",
     "schedule:daily",
     "customManagers:biomeVersions"
   ],
@@ -20,17 +20,28 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["(^|/)\\.npmrc$"],
-      "matchStrings": ["use-node-version=(?<currentValue>.*?)\\n"],
+      "managerFilePatterns": [
+        "/(^|/)\\.npmrc$/"
+      ],
+      "matchStrings": [
+        "use-node-version=(?<currentValue>.*?)\\n"
+      ],
       "depNameTemplate": "node",
       "datasourceTemplate": "node-version"
     }
   ],
   "packageRules": [
     {
-      "extends": ["monorepo:turbo"],
+      "extends": [
+        "monorepo:turbo"
+      ],
       "groupName": "turbo monorepo",
-      "matchUpdateTypes": ["digest", "patch", "minor", "major"]
+      "matchUpdateTypes": [
+        "digest",
+        "patch",
+        "minor",
+        "major"
+      ]
     }
   ]
 }
